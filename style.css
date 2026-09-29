@@ -1,0 +1,1183 @@
+/* ===================================================
+   OILA XARAJATLARI VA BUDJETI - MOBILE APP CSS
+   =================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg-app: #f4f5f9;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --dark-hero: #111216;
+  --dark-hero-surface: #1c1e24;
+  --accent-black: #09090b;
+  --border-subtle: #f1f3f6;
+  --border-input: #e2e8f0;
+  --radius-card: 22px;
+  --radius-pill: 9999px;
+  --income-green: #10b981;
+  --income-green-bg: #ecfdf5;
+  --expense-red: #ef4444;
+  --expense-red-bg: #fef2f2;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  line-height: 1.4;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Mobil ilova qobig'i */
+.mobile-frame {
+  width: 100%;
+  max-width: 440px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+  padding: 16px 18px 96px;
+}
+
+/* 1. YUQORI PANEL VA OY TANLAGICH */
+.app-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 2px 16px;
+  gap: 10px;
+}
+
+.user-greeting {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.greeting-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.4px;
+}
+
+.month-selector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #f1f3f7;
+  padding: 4px 6px;
+  border-radius: var(--radius-pill);
+}
+
+.month-nav-btn {
+  background: transparent;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.month-nav-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.month-nav-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.current-month-text {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-main);
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+/* 2. ASOSIY QORA BANK KARTASI */
+.card-hero {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card-hero-inner {
+  background: linear-gradient(145deg, #1c1d24 0%, #0d0e12 100%);
+  border-radius: var(--radius-card);
+  padding: 20px 18px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 26px -4px rgba(17, 18, 22, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-hero-inner::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-chip {
+  width: 30px;
+  height: 22px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 3px 4px;
+}
+
+.chip-line {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 1px;
+}
+
+.card-budget-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.card-budget-pill:hover,
+.card-budget-pill:active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.card-balance-block {
+  margin-bottom: 14px;
+}
+
+.balance-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.balance-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin-top: 2px;
+  line-height: 1.15;
+}
+
+.card-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.stat-pill {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-icon-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.stat-income .stat-icon-badge {
+  background-color: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+.stat-expense .stat-icon-badge {
+  background-color: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+}
+
+.stat-text-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.stat-title {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.stat-amount {
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat-income .stat-amount {
+  color: #34d399;
+}
+
+.stat-expense .stat-amount {
+  color: #f87171;
+}
+
+.card-budget-section {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.budget-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.76rem;
+  margin-bottom: 6px;
+}
+
+.budget-label {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+.budget-percent {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.budget-bar-track {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.budget-bar-fill {
+  height: 100%;
+  background: #38bdf8;
+  border-radius: var(--radius-pill);
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* 3. TABS CONTAINER */
+.tabs-container {
+  flex: 1;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 0 2px;
+}
+
+.header-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.section-subheading {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.badge-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--bg-app);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+/* 4. 1-TAB: TRANZAKSIYALAR RO'YXATI */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 15px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  gap: 12px;
+}
+
+.tx-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.category-badge-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cat-oziq-ovqat { background-color: #ffedd5; color: #ea580c; }
+.cat-salomatlik { background-color: #ffe4e6; color: #e11d48; }
+.cat-kommunal   { background-color: #d1fae5; color: #059669; }
+.cat-talim       { background-color: #f3e8ff; color: #7e22ce; }
+.cat-transport   { background-color: #e0f2fe; color: #0284c7; }
+.cat-kredit      { background-color: #fee2e2; color: #dc2626; }
+.cat-boshqa      { background-color: #f1f5f9; color: #475569; }
+
+.cat-maosh       { background-color: #dcfce7; color: #15803d; }
+.cat-pensiya     { background-color: #fef9c3; color: #a16207; }
+.cat-biznes      { background-color: #ede9fe; color: #6d28d9; }
+.cat-kirim-boshqa{ background-color: #ccfbf1; color: #0f766e; }
+
+.tx-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tx-title {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tx-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.tx-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.tx-amount {
+  font-size: 0.96rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.tx-amount.amount-income {
+  color: var(--income-green);
+}
+
+.tx-amount.amount-expense {
+  color: var(--text-main);
+}
+
+.btn-delete-tx {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.btn-delete-tx:hover,
+.btn-delete-tx:active {
+  color: var(--expense-red);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 36px 18px;
+  background-color: #fafbfd;
+  border-radius: 20px;
+  border: 1px dashed #e2e8f0;
+}
+
+.empty-pill {
+  display: inline-block;
+  background-color: var(--dark-hero);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.empty-subtext {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+/* 5. 2-TAB: QO'SHISH FORMASI */
+.segmented-control {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #f1f3f7;
+  padding: 4px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  gap: 4px;
+}
+
+.segment-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 8px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.segment-btn.active {
+  background-color: #ffffff;
+  color: var(--text-main);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-card {
+  background-color: #f8fafc;
+  border: 1px solid var(--border-input);
+  border-radius: 18px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-card:focus-within {
+  background-color: #ffffff;
+  border-color: var(--dark-hero);
+}
+
+.input-card-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.input-card input[type="text"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 4px 0;
+}
+
+.date-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 4px 0;
+}
+
+.amount-input-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.amount-input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  padding: 2px 0;
+}
+
+.currency-tag {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.category-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.chip-btn {
+  background-color: #ffffff;
+  border: 1px solid var(--border-input);
+  padding: 9px 4px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.chip-btn.active {
+  background-color: var(--dark-hero);
+  border-color: var(--dark-hero);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.btn-action-primary {
+  width: 100%;
+  height: 52px;
+  background-color: var(--dark-hero);
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  box-shadow: 0 8px 20px -4px rgba(17, 18, 22, 0.3);
+  transition: transform 0.1s ease, background-color 0.15s ease;
+}
+
+.btn-action-primary:active {
+  transform: scale(0.98);
+}
+
+.alert-box {
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  background-color: var(--expense-red-bg);
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ===================================================
+   6. 3-TAB: STATISTIKA VA TAHLIL ELEMENTLARI
+   =================================================== */
+
+/* Insight Banner (Skrinshotdagi kabi qora trend banneri) */
+.insight-banner {
+  background: linear-gradient(135deg, #181920 0%, #0d0e12 100%);
+  border-radius: 18px;
+  padding: 14px 16px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.insight-badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  flex-shrink: 0;
+}
+
+.insight-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.insight-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.insight-desc {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.35;
+}
+
+/* Dinamika Grafigi Kartasi */
+.chart-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.chart-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.chart-switch-pills {
+  display: flex;
+  background-color: #f1f3f7;
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  gap: 2px;
+}
+
+.chart-pill {
+  background: transparent;
+  border: none;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chart-pill.active {
+  background-color: #ffffff;
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Dumaloq SVG Donut Chart Viewport */
+.chart-viewport {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 10px;
+}
+
+.donut-svg {
+  width: 215px;
+  height: 215px;
+  overflow: visible;
+}
+
+/* Dumaloq grafik toifalari (Legend) */
+.chart-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8fafc;
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.legend-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.legend-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* 2x2 KPI Tarmoq */
+.stats-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.kpi-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.kpi-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.kpi-value {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.kpi-subtext {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Budjet va Progress Bloklari */
+.analytics-card-budget {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.analytics-budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.analytics-small-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.analytics-big-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.btn-secondary-pill {
+  background-color: #f1f3f7;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.btn-secondary-pill:hover {
+  background-color: #e2e8f0;
+}
+
+.analytics-budget-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.analytics-section-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 10px;
+  padding: 0 2px;
+}
+
+.category-analytics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cat-analytics-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.cat-analytics-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cat-analytics-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cat-analytics-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.cat-analytics-sum {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.cat-analytics-percent {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.cat-progress-track {
+  width: 100%;
+  height: 7px;
+  background-color: #f1f3f6;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.cat-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.3s ease;
+}
+
+/* 7. EKRAN PASTIDAGI DOIMIY MENYU */
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 8px 20px calc(8px + env(safe-area-inset-bottom, 0px));
+  z-index: 999;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 58px;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--text-light);
+  flex: 1;
+  transition: color 0.15s ease;
+}
+
+.nav-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.nav-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  color: var(--dark-hero);
+}
+
+.nav-item.active .nav-icon {
+  stroke-width: 2.5;
+}
+
+.nav-item-add .plus-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--dark-hero);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(17, 18, 22, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.nav-item-add.active .plus-circle {
+  background-color: #000000;
+  transform: scale(1.06);
+}
+
+.nav-icon-plus {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+}
+
+/* 8. BUDJETNI SOZLASH MODAL OYNASI */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 28px 28px 0 0;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.modal-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-modal-cancel {
+  flex: 1;
+  height: 48px;
+  background-color: #f1f3f7;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.btn-modal-save {
+  flex: 1;
+  height: 48px;
+  background-color: var(--dark-hero);
+  border: none;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Mobil adaptivlik */
+@media (max-width: 480px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  .mobile-frame {
+    box-shadow: none;
+    padding: 12px 14px 92px;
+  }
+
+  .balance-value {
+    font-size: 1.7rem;
+  }
+}
